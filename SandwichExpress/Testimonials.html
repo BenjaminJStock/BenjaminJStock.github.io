@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Benjamin J. Stock - Eportfolio</title>
+        <link rel="shortcut icon" type="image/x-icon" href="img/icon.ico" />
+        <!-- Adds an icon next to the page title in the browsers. -->
+        <!-- Specify Link to External Style Sheet -->
+        <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+		<link rel="stylesheet" href="css/styles.css">
+
+	<!--[if IE]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+</head>
+
+<body>
+
+	<header>
+
+		<a href="index.html" id="logo"></a>
+
+		<nav>
+
+			<a href="#" id="menu-icon"></a>
+
+			<ul>
+
+				<li><a href="index.html">Home</a></li>
+				<li><a href="Pricing.html">Pricing</a></li>
+                <li><a href="Testimonials.html">Testimonials</a></li>
+                <li><a href="ContactUs.html">Contact Us</a></li>
+
+			</ul>
+
+		</nav>
+
+	</header>
+
+	<section>
+
+		
+
+		<h1>Sandwich Express</h1>
+	       
+		<p>Welcome to Sandwich Express!</p>
+
+		<p>We are located in Lincolnshire and we have a delivery radius of 25 miles.
+           We offer bulk lunch deliveries in order to keep your costs low. We have a strict rule that all of our fresh ingredients will be local to Lincolnshire, or if not possible, be grown within 25 miles of Lincolnshire.
+		   We aim to cater to as many people's needs as possible, so whether you're a Vegan, Vegetarian, Coeliac, Pescetarian, we will <b>always</b> try to make our menus suited to you.
+		</p>
+		
+		<p>We aim to maintain a high level of service, buy taking feedback from our customers. We try to make sure that everyone. We also offer bulk sandwich platters, suitable for every occasion. These are totally customizable, just send use a email using our handy contact form, located on the next page, and we will be happy to deal with your requiest. Here are some words from our previous customers;</p>
+                		
+		
+		<div id="testimonials">
+                    <h2>TESTIMONIALS</h2>
+                    <div id="test_container">
+                        <div class="testimonial">
+                            <div class="testimonial_text"><strong>Fab Service!</strong>The best organic hand made sandwich shop in Lincoln!</div>
+                            <h3 class="testimonial_name">-Charlie Kelly</h3>
+                            <div class="testimonial_designation">CEO, Paddy's Pub.</div>
+                        </div>
+                        <div class="testimonial">
+                            <div class="testimonial_text">Well priced and well made. would definitely buy again.</div>
+                            <h3 class="testimonial_name">-Frank Reynolds</h3>
+                            <div class="testimonial_designation">Manager, Atwater Capital</div>
+                        </div>
+                        <div class="testimonial">
+                            <div class="testimonial_text">I've used a variety of sandwich shops, and this one gets 10 out of 10. Every time I have used them, I get great service and good food for all my staff.</div>
+                            <h3 class="testimonial_name">-Micheal Bluth</h3>
+                            <div class="testimonial_designation">Founder and CEO, Wheeler Group</div>
+                        </div>
+                    </div>
+                    <div id="t_pagers"><a class="pager"></a><a class="pager"></a><a class="pager"></a>
+					</div>
+					
+                    
+                    <script src="Javascript/jquery.js"></script>
+                    <script type="text/javascript">
+                        jQuery(document).ready(function($){
+                        	var w,mHeight,tests=$("#testimonials");
+                        	w=tests.outerWidth();
+                        	mHeight=0;
+                        	tests.find(".testimonial").each(function(index){
+                        		$("#t_pagers").find(".pager:eq(0)").addClass("active");	//make the first pager active initially
+                        		if(index==0)
+                        			$(this).addClass("active");	//make the first slide active initially
+                        		if($(this).height()>mHeight)	//just finding the max height of the slides
+                        			mHeight=$(this).height();
+                        		var l=index*w;				//find the left position of each slide
+                        		$(this).css("left",l);			//set the left position
+                        		tests.find("#test_container").height(mHeight);	//make the height of the slider equal to the max height of the slides
+                        	});
+                        	$(".pager").on("click",function(e){	//clicking action for pagination
+                        		e.preventDefault();
+                        		next=$(this).index(".pager");
+                        		clearInterval(t_int);	//clicking stops the autoplay we will define later
+                        		moveIt(next);
+                        	});
+                        	var t_int=setInterval(function(){	//for autoplay
+                        		var i=$(".testimonial.active").index(".testimonial");
+                        		if(i==$(".testimonial").length-1)
+                        			next=0;
+                        		else
+                        			next=i+1;
+                        		moveIt(next);
+                        	},3000);
+                        });
+                        function moveIt(next){	//the main sliding function
+                        	var c=parseInt($(".testimonial.active").removeClass("active").css("left"));	//current position
+                        	var n=parseInt($(".testimonial").eq(next).addClass("active").css("left"));	//new position
+                        	$(".testimonial").each(function(){	//shift each slide
+                        		if(n>c)
+                        			$(this).animate({'left':'-='+(n-c)+'px'});
+                        		else
+                        			$(this).animate({'left':'+='+Math.abs(n-c)+'px'});
+                        	});
+                        	$(".pager.active").removeClass("active");	
+                        	$("#t_pagers").find(".pager").eq(next).addClass("active");
+                        }
+                    </script>
+		</div>
+		
+		
+		
+
+	</section>
+<footer id="footer">
+        Copyright © 2014 Benjamin Stock Publications
+    </footer>
+</body>
+
+</html>

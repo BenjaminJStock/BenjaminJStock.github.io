@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>	
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<title>Benjamin Stock</title>
+<link rel="icon" href="imgs/web-design-icons-graphic.png" type="image/gif" sizes="260x260">
+	    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+		<script src="js/jquery.animateColor.js" type="text/javascript"></script>
+
+		<script src="js/main.js" type="text/javascript"></script>
+		
+		
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/videos.css" />
+		
+		<script type="text/javascript">
+			
+			$(document).ready(function(){
+				initMenu();
+				animateMenuItems();	
+				//animateBGColor(0, false);			
+				
+				initAccordions();
+			});
+			
+			var openClass = "opened_accordion";
+			function initAccordions() {
+				//http://www.i-marco.nl/weblog/jquery-accordion-menu-redux/
+				//** How to make an accorion plugin **
+				//who are we applying to ($(ul.accordion))
+				//heading selector (h3)
+				//contents selector (.innards)
+				//expandFirst = true (is the first element open at start?)
+				//collapsible = true (does clicking on an open title close that it)
+				//noAccordion = false (do not close other elements when opening another)
+				//onExpand function (what to do after the element has expanded)
+				//openClass = 'opened' (class to assign to opened elements)
+				//expandHash = true (if url# is defined then expand element with that id first)				
+				
+				//hide all the contents
+				$('ul.accordion .innards').hide();				
+				
+				//if it is .expandfirst then show the first innards
+				$.each($('ul.accordion'), function(){
+					$('#' + this.id + '.expandfirst .innards:first').show().parent().addClass(openClass);
+				});
+				//when a title is clicked
+				$('ul.accordion li h3').click(
+					function() {
+						var checkElement = $(this).next();
+						var parent = this.parentNode.parentNode.id;
+
+						
+						if($('#' + parent).hasClass('noaccordion')) {
+							$(this).next().slideToggle('normal');
+							return false;
+						}
+						if((checkElement.is('.innards')) && (checkElement.is(':visible'))) {
+							if($('#' + parent).hasClass('collapsible')) {
+								$('#' + parent + ' .innards:visible').slideUp('normal').parent().removeClass(openClass);
+							}
+							return false;
+						}
+						if((checkElement.is('.innards')) && (!checkElement.is(':visible'))) {
+							//hide all visible contents							
+							$('#' + parent + ' .innards:visible').slideUp('normal').parent().removeClass(openClass);
+							//open the selected contents
+							checkElement.slideDown('normal').parent().addClass(openClass);
+							return false;
+						}
+					}
+				);
+				
+			}
+		</script>
+		
+	</head>
+	<body class="videos">
+		<img src="imgs/bgsplat_trans_small.png" class="bg">
+		<div id="signature">BenjaminJStock2016</div>
+		
+		<div id="header" class="small">
+			<h1><a href="index.html">Benjamin Stock</a></h1>
+			<h2>photos</h2>
+			<div id="menu_button" style="display:inline;"><span class="show"></span></div>
+		</div>		
+		<div id="menu" style="display:none;">
+			<ul>
+				<li><a href="projects.html">projects</a></li>
+				<!-- <li><a href="images.html">images</a></li> -->
+				<li><a href="other.html">other</a></li>
+				<li><a href="contact.html">contact</a></li>
+			</ul>
+		</div>
+		
+		<div id="contents">
+			<ul id="video_list" class="accordion collapsible expandfirst">
+				<li>
+					<h3>Saturday Night at the park #glastonbury</h3>
+					
+						<div class="innards">
+						
+						
+							<a href="4.jpg" rel="prettyPhoto[pp_gal]" title="Saturday Night at the park #glastonbury"><img src="4.jpg" width="75%" height="75%" alt="Saturday Night at the park. #glastonbury" /></a>
+							<p>Loverly Sunset of the Saturday night just before My Nu Leng and Oliver Heldens DJ sets. </p>
+							<p>Probably the best photo I took at Glastonbury 2016.</p>
+							
+							<br>
+							<p>All photos taken with iPhone 5c, using Instagram filters.</p>
+							
+							
+							
+						</div>
+					
+					
+				</li>
+				<li id="rhblues">
+					<h3>Banners at Glastonbury 2016.</h3>
+					<div class="innards">
+					
+						<a href="1.jpg" rel="prettyPhoto[pp_gal]" title="3w"><img src="1.jpg" width="75%" height="75%" alt="Banners at Glastonbury 2016." /></a>
+
+						<p>Such wonderful banners on show, contrasting for the current hate in the world.</p>
+						
+						<br>
+						<p>All photos taken with iPhone 5c, using Instagram filters.</p>
+					</div>
+				</li>
+				<li>
+					<h3>BlueStage</h3>
+					<div class="innards">					
+					
+					<a href="2.jpg" rel="prettyPhoto[pp_gal]" title="The Blues Stage is so cool."><img src="2.jpg" width="75%" height="75%" alt="The Blues Stage is so cool." /></a>
+					
+						<p>Its crazy to think that they have built all of this just for 5 days of partying.</p>
+						
+						<br>
+						<p>All photos taken with iPhone 5c, using Instagram filters.</p>
+					</div>
+				</li>
+				
+				<li>
+					<h3>Stone Circle</h3>
+					<div class="innards">					
+
+					<a href="3.jpg" rel="prettyPhoto[pp_gal]" title="Stone Cirle at Glastonbury."><img src="3.jpg" width="75%" height="75%" alt="Stone Cirle at Glastonbury." /></a>
+					
+					<p>The stone circle up through the healing fields might not seem that exciting, but it meant alot to everyone at Glastonbury.</p>
+						
+						<br>
+						<p>All photos taken with iPhone 5c, using Instagram filters.</p>
+					</div>
+				</li>
+				
+				
+				<li>
+					<h3>Millers Stage</h3>
+					<div class="innards">					
+
+					<a href="5.jpg" rel="prettyPhoto[pp_gal]" title="Millers Stage uptop the hill at Glastonbury"><img src="5.jpg" width="75%" height="75%" alt="Millers Stage uptop the hill at Glastonbury" /></a>
+					<p>The Millers stage was an small awesome stage up top on the hill at Glastonbury. Its amazing to see some of the really small bands play with such great crowds.</p>
+						
+						<br>
+						<p>All photos taken with iPhone 5c, using Instagram filters.</p>
+					</div>
+				</li>
+				
+				<li>
+					<h3>My Nu Leng X Arcadia</h3>
+					<div class="innards">					
+
+						<a href="6.jpg" rel="prettyPhoto[pp_gal]" title="My Nu Leng DJ'ing in the Arcadia Spider"><img src="6.jpg" width="75%" height="75%" alt="My Nu Leng DJ'ing in the Arcadia Spider" /></a>
+					<p>This was one of the top 5 acts I saw over the weekend. And them playing in the Arcadia spider made it so much more exhilirating.</p>
+						
+						<br>
+						<p>All photos taken with iPhone 5c, using Instagram filters.</p>
+					</div>
+				</li>
+				
+				<li>
+					<h3>Park Hill</h3>
+					<div class="innards">					
+
+					<a href="7.jpg" rel="prettyPhoto[pp_gal]" title="Park Hill on Thursday"><img src="7.jpg" width="75%" height="75%" alt="Park Hill on Thursday" /></a>
+					<p>Park Hill on Wednesday night only hours since I arrived and the atmosphere of everyone was so exciting and crazy.</p>
+						
+						<br>
+						<p>All photos taken with iPhone 5c, using Instagram filters.</p>
+					</div>
+				</li>
+				
+				<li>
+					<h3>Helter Skelter</h3>
+					<div class="innards">					
+
+					<a href="8.jpg" rel="prettyPhoto[pp_gal]" title="Awesome Helter Skelter #glastonbury"><img src="8.jpg" width="75%" height="75%" alt="Awesome Helter Skelter #glastonbury" /></a>
+					<p>Although the queue for this was over 20 minutes, it was still fun to see everything at the top of this, then slide down it.</p>
+						
+						<br>
+						<p>All photos taken with iPhone 5c, using Instagram filters.</p>
+					</div>
+				</li>
+				
+				
+			</ul>
+
+		
+			
+		</div>
+	</body>
+</html>

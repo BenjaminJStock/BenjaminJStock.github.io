@@ -1,0 +1,37 @@
+body {
+  padding: 20px;
+}
+
+#search-form,
+.form-control {
+  margin-bottom: 20px;
+}
+
+.cover {
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+  background-size: cover;
+}
+
+.cover:hover {
+  cursor: pointer;
+}
+
+.cover.playing {
+  border: 5px solid #e45343;
+  opacity: 1.0
+}
+
+
+
+.img {
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+.img:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+

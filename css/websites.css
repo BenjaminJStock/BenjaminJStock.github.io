@@ -1,0 +1,89 @@
+body.websites {
+	background-color: white;
+}
+
+body.websites #contents {
+	position: absolute;
+	left: 228px; top: 180px;
+
+	xoutline: 1px solid black;
+}
+body.websites .sites_list {
+	border-bottom: 5px dashed #FFF;
+}
+body.websites .sites_list.last_list { border-bottom-style: none; }
+
+
+body.websites .sites_list li {
+	overflow: hidden;
+	margin-top: 21px;
+	margin-bottom: 21px;
+	xfloat: left;
+	width: 480px;
+	margin-right: 10px;
+}
+body.websites .sites_list hr {
+	border: 1px solid #808080;
+}
+
+body.websites .sites_list li img {
+	margin: 4px;
+	width: 216px; height: 166px;
+}
+body.websites .sites_list li img:hover {
+	margin: 0px;
+	width: 224px; height: 174px;
+}
+
+body.websites .sites_list li a.details {
+	display: block;	
+	margin-left:230px;
+	xoutline: 1px solid black;	
+}
+body.websites .sites_list li a.lightbox { 
+	display: block;
+	float: left; 
+}
+
+body.websites .sites_list li .link {
+	font-size: 24px;
+	color: black;
+	letter-spacing: -1px;
+	font-weight: bold;
+	
+	margin-top: 10px;
+	display: block;
+	
+	xline-height: 18px;
+	xmargin-bottom: 3px;
+	xmargin-top: 13px;
+}
+
+body.websites .sites_list li a:hover .link {
+	background-color: black;
+	color: white;
+}
+
+body.websites .sites_list li .date {
+	font-size: 12px;
+	color: #808080;	
+	letter-spacing: -1px;
+	font-weight: bold;
+	line-height:14px;
+	
+	margin-top:-3px;
+	display: block;
+}
+body.websites .sites_list li a:hover .date {
+	background-color: black;
+	color: black;
+}
+
+body.websites .sites_list li .info {
+	font-size: 14px;
+	color: #4c4c4c;
+	
+	margin-top: 14px;
+	display: block;
+}
+body.websites .sites_list li a:hover .info { }

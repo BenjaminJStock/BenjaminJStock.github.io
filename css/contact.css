@@ -1,0 +1,12 @@
+body.contact #contents {
+	position: absolute;
+	left: 250px; top: 350px;
+	
+	width: 460px;
+	text-align: center;
+	color: black;
+	
+	font-size: 24px;
+	
+	xoutline: 1px solid black;
+}
